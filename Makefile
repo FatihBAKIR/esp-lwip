@@ -43,12 +43,16 @@ src/core/udp.o \
 src/netif/etharp.o \
 espressif/espconn_dummy.o \
 
+.PHONY: all
+
 %.o: %.c
 	$(CC) -c $(CFLAGS) -o $@ $<
 	$(OBJCOPY) --rename-section .text=.irom0.text --rename-section .literal=.irom0.literal $@
+
+all: liblwip.a our/eagle_lwip_if.o
 
 liblwip.a: $(OBJS)
 	$(AR) rcs liblwip.a $(OBJS)
 
 clean:
-	rm -f $(OBJS) liblwip.a
+	rm -f $(OBJS) liblwip.a our/eagle_lwip_if.o
