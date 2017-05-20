@@ -13,6 +13,7 @@
 #define PBUF_RSV_FOR_WLAN                   1
 #define ICACHE_FLASH                        1
 #define EBUF_LWIP                           1
+#define LWIP_NETIF_HOSTNAME                 1
 
 // Leave unchanged unless you really know what you're doing:
 #define MEM_ALIGNMENT                       4
@@ -80,7 +81,6 @@ static inline u32_t sys_now(void)
 #define LWIP_STATS                          0
 
 #ifdef LWIP_OUR_IF
-  #define LWIP_NETIF_HOSTNAME               1 // our eagle_lwip_if.o required
   #define LWIP_NETIF_HOSTNAME_PREFIX        "esp8266-"
 #endif
 
