@@ -142,6 +142,13 @@ ip_route(ip_addr_t *dest)
       }
     }
   }
+
+  /* esp8266: Route global broadcasts to AP netif */
+  /* Using netif_list as a random, non-NULL netif. */
+  if (ip_addr_isbroadcast(dest, netif_list)) {
+    return eagle_lwip_getif(1);
+  }
+
   if ((netif_default == NULL) || (!netif_is_up(netif_default))) {
     LWIP_DEBUGF(IP_DEBUG | LWIP_DBG_LEVEL_SERIOUS, ("ip_route: No route to %"U16_F".%"U16_F".%"U16_F".%"U16_F"\n",
       ip4_addr1_16(dest), ip4_addr2_16(dest), ip4_addr3_16(dest), ip4_addr4_16(dest)));
