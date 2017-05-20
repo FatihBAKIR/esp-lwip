@@ -51,6 +51,7 @@ src/core/tcp_out.o \
 src/core/timers.o \
 src/core/udp.o \
 src/netif/etharp.o \
+src/apps/dhcpserver/dhcpserver.o \
 espressif/espconn_dummy.o \
 
 .PHONY: all clean replace_libmain
