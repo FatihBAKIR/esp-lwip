@@ -81,29 +81,10 @@ static inline u32_t sys_now(void)
 // #define IP_DEBUG                            LWIP_DBG_ON
 #define LWIP_DBG_TYPES_ON                   LWIP_DBG_OFF
 
-#define MEM_SIZE                            16000
-#define MEMP_SEPARATE_POOLS                 1
-#define MEMP_SANITY_CHECK                   1
 #define MEMP_NUM_PBUF                       10
 #define MEMP_NUM_TCP_PCB_LISTEN             2
-#define MEMP_NUM_REASSDATA                  0
-#define MEMP_NUM_FRAG_PBUF                  0
 #define MEMP_NUM_ARP_QUEUE                  10
-#define MEMP_NUM_NETBUF                     0
-#define MEMP_NUM_NETCONN                    0
-#define MEMP_NUM_TCPIP_MSG_API              4
-#define MEMP_NUM_TCPIP_MSG_INPKT            4
-#define MEMP_NUM_SNMP_NODE                  0
-#define MEMP_NUM_SNMP_ROOTNODE              0
-#define MEMP_NUM_SNMP_VARBIND               0
-#define MEMP_NUM_SNMP_VALUE                 0
-#define MEMP_NUM_NETDB                      0
-#define MEMP_NUM_LOCALHOSTLIST              0
-#define MEMP_NUM_PPPOE_INTERFACES           0
 #define PBUF_POOL_SIZE                      10
-#define SNMP_CONCURRENT_REQUESTS            0
-#define SNMP_TRAP_DESTINATIONS              0
-#define SNMP_SAFE_REQUESTS                  0
 #define TCP_MAXRTO                          10
 #define TCP_MINRTO                          2
 
