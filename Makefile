@@ -5,7 +5,7 @@ CFLAGS = -I../sdk/include -Isrc/include/ -Isrc/include/ipv4/ -Iconfig/ -Iespress
 
 include ./Makefile-local.mk
 
-CFLAGS += -Os -g -mlongcalls -DNO_SYS=1 -DLWIP_OPEN_SRC -D__ets__
+CFLAGS += -Os -g -mlongcalls -DNO_SYS=1 -ffunction-sections -fdata-sections -DLWIP_OPEN_SRC -D__ets__
 
 ifneq ($(LIBMAIN_PATH),)
     ADDITIONAL_TARGETS += replace_libmain
