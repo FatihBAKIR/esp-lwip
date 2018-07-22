@@ -1,11 +1,11 @@
 CC = xtensa-lx106-elf-gcc
 AR = xtensa-lx106-elf-ar
 OBJCOPY = xtensa-lx106-elf-objcopy
-CFLAGS = -Isrc/include/ -Isrc/include/ipv4/ -Iconfig/ -Iespressif/include/
+CFLAGS = -I../sdk/include -Isrc/include/ -Isrc/include/ipv4/ -Iconfig/ -Iespressif/include/
 
 include ./Makefile-local.mk
 
-CFLAGS += -Os -g -mlongcalls -DLWIP_OPEN_SRC -D__ets__
+CFLAGS += -Os -g -mlongcalls -DNO_SYS=1 -DLWIP_OPEN_SRC -D__ets__
 
 ifneq ($(LIBMAIN_PATH),)
     ADDITIONAL_TARGETS += replace_libmain
@@ -67,6 +67,9 @@ liblwip.a: $(OBJS)
 
 replace_libmain: our/eagle_lwip_if.o
 	$(AR) rs $(LIBMAIN_PATH) $^
+
+install: liblwip.a
+	cp liblwip.a $(PREFIX)/xtensa-lx106-elf/sysroot/usr/lib/
 
 clean:
 	rm -f $(OBJS) liblwip.a our/eagle_lwip_if.o

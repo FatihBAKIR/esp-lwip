@@ -1,6 +1,7 @@
 #include "lwip/netif.h"
 #include "netif/etharp.h"
-#include "lwip/app/dhcpserver.h"
+#include "../src/apps/dhcpserver/dhcpserver.h"
+#include "mem.h"
 
 #define QUEUE_LEN 10
 #define TASK_IF0_PRIO 28
